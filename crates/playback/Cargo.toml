@@ -1,0 +1,17 @@
+[package]
+name = "mango-playback"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Mango Loco live preview: decoded-audio cache, realtime mixer, audio output and video frame streams"
+
+[dependencies]
+anyhow.workspace = true
+mango-core.workspace = true
+cpal = "0.18"
+memmap2 = "0.9"
+arc-swap = "1"
+
+[dev-dependencies]
+tempfile = "3"

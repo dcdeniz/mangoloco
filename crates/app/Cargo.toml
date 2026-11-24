@@ -1,0 +1,42 @@
+[package]
+name = "mangoloco"
+version = "0.1.0"
+edition = "2024"
+license = "LicenseRef-Proprietary"
+publish = false
+description = "Mango Loco: edit audio and video by editing text"
+
+# Standalone workspace for now so its large dependency tree does not churn
+# the backend crates' lockfile.
+[workspace]
+
+[[bin]]
+name = "mangoloco"
+path = "src/main.rs"
+
+[dependencies]
+gpui-kit = "0.10.0"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+mango-core = { path = "../core" }
+mango-speech = { path = "../speech" }
+mango-playback = { path = "../playback" }
+mango-media = { path = "../media" }
+mango-ai = { path = "../ai" }
+
+[dev-dependencies]
+tempfile = "3"
+gpui-kit = { version = "0.10.0", features = ["test-support"] }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 2
+
+[profile.release]
+lto = "thin"
+codegen-units = 4
+strip = true

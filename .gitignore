@@ -1,0 +1,9 @@
+target/
+.env
+.env.*
+*.local
+.DS_Store
+/research/rea/
+/models/
+dist/
+crates/app/target/

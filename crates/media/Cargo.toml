@@ -1,0 +1,20 @@
+[package]
+name = "mango-media"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+description = "Mango Loco media layer: ffmpeg/ffprobe, waveforms, frames, text/shape rasteriser, export runner"
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+mango-core.workspace = true
+cosmic-text = "0.19"
+tiny-skia = "0.12"
+png = "0.18"
+tempfile = "3"
+
+[dev-dependencies]
+tempfile = "3"
